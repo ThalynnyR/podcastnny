@@ -5,23 +5,24 @@
 <br>
 
 
-## 🧪 Technologies
+## 🧪 Tecnologias
 
-This project was developed using the following technologies:
+Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 - [Next.js](https://nextjs.org/)
 - [React](https://reactjs.org)
 - [TypeScript](https://www.typescriptlang.org/)
 
-## 🚀 Getting started
+## 🚀 Startando
 
-Clone the project and access the folder
+Clone o projeto e acesse a pasta:
 
 ```bash
 $ git clone https://github.com/ThalynnyR/podcastnny.git && cd podcastnny
 ```
 
-Follow the steps below
+Siga os passos abaixo:
+
 ```bash
 # Install the dependencies
 $ npm install
