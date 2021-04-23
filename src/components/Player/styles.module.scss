@@ -25,7 +25,7 @@
   footer {
     align-self: stretch;
 
-    &.empty {
+    &.empty.progress {
       opacity: 0.5;
     }
   }
@@ -115,15 +115,23 @@
       filter: brightness(0.7);
     }
 
-   &.playButton {
-     width: 4rem;
-     height: 4rem;
-     border-radius: 1rem;
-     background: var(--purple-400);
-
-     &:hover:not(:disabled) {
-      filter: brightness(0.95);
+    &.isActive { // forçar trocar a cor do svg
+      filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg)
     }
-   }
+
+    &.isActive:hover { // forçar trocar a cor do svg
+      filter: brightness(0.6) invert(0.35) sepia(1) saturate(3) hue-rotate(100deg)
+    }
+
+    &.playButton {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      background: var(--purple-400);
+
+      &:hover:not(:disabled) {
+        filter: brightness(0.95);
+      }
+    }
   }
 }

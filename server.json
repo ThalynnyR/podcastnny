@@ -1,6 +1,19 @@
 {
   "episodes": [
     {
+    "id": "eu-e-tay-andando-de-patinete-eletrico",
+    "title": "DeTudo #01 | Nós andando de patinete eletrico em Curitiba",
+    "members": "Thalynny Rabelo, Tayná Lopes",
+    "published_at": "2021-04-23 07:53:30",
+    "thumbnail": "/image-audio/amo-livre.jpeg",
+    "description": "<p>Nesse dia estavamos em Curitiba, conhecendo o parque da cidade e tivemos a grande ideia de andar de patinete.</p> <br/> <p>Detalhe: As duas no mesmo patinete!</p>",
+    "file": {
+      "url": "/audios/eu-e-tay-andando-de-patinete.m4a",
+      "type": "audio/x-m4a",
+      "duration": 20
+    }
+  },
+    {
       "id": "a-importancia-da-contribuicao-em-open-source",
       "title": "Faladev #30 | A importância da contribuição em Open Source",
       "members": "Diego Fernandes, João Pedro, Diego Haz e Bruno Lemos",

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { GetStaticProps } from 'next'; //tipagem do proprio next
 import Image from 'next/image';
+import Head from 'next/head';
 import { api } from '../services/api';
 import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
@@ -26,7 +27,9 @@ type HomeProp = {
 }
 
 export default function Home({ lastedEpisodes, allEpisodes }: HomeProp) {
-  const { play } = useContext(PlayerContext);
+  const { play, playList } = useContext(PlayerContext);
+  const episodeList = [...lastedEpisodes, ...allEpisodes]; // passando todos os episodios
+
   // useEffect(() => { //modelo SPA, só no acesso do usuário
   //   fetch('http://localhost:3333/episodes')
   //     .then((response) => response.json())
@@ -35,11 +38,15 @@ export default function Home({ lastedEpisodes, allEpisodes }: HomeProp) {
 
   return (
     <div className={styles.homepage}>
+      <Head> 
+      {/* Tudo que colocar aqui será injetado no head do html */}
+        <title>Home | Podcastnny</title>
+      </Head>
+
       <section className={styles.latestEpisodes}>
         <h2>Últimos lançamentos</h2>
-
         <ul>
-          {lastedEpisodes.map(episode => {
+          {lastedEpisodes.map((episode, index) => {
             return (
               <li key={episode.id}>
                 <Image 
@@ -55,8 +62,8 @@ export default function Home({ lastedEpisodes, allEpisodes }: HomeProp) {
                   <span>{episode.publishedAt}</span>
                   <span>{episode.durationToString}</span>
                 </div>
-
-                <button type="button" onClick={() => play(episode)}>
+                {/* // escolher um episodio (index), dentre todos */}
+                <button type="button" onClick={() => playList(episodeList, index)}>
                   <img src="/play-green.svg" alt="Tocar episodio" />
                 </button>
               </li>
@@ -79,7 +86,7 @@ export default function Home({ lastedEpisodes, allEpisodes }: HomeProp) {
               </tr>
             </thead>
             <tbody>
-              {allEpisodes.map(episode => {
+              {allEpisodes.map((episode, index) => {
                 return (
                   <tr key={episode.id}>
                     <td style={{ width: 72 }}>
@@ -100,7 +107,7 @@ export default function Home({ lastedEpisodes, allEpisodes }: HomeProp) {
                     <td style={{ width: 100 }}>{episode.publishedAt}</td>
                     <td>{episode.durationToString}</td>
                     <td> 
-                      <button type="button" onClick={() => play(episode)}> {/* Enviando um episodio para tocar, episode que vem de dentro do map */}
+                      <button type="button" onClick={() =>  playList(episodeList, index + lastedEpisodes.length)}> {/* Enviando um episodio para tocar, episode que vem de dentro do map */}
                         <img src="/play-green.svg" alt="Tocar episódio"/>
                       </button>
                     </td>
